@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 24px;
+  font-family: helvetica, sans-serif;
+}
+body {
+  margin: 0;
+}
+header {
+  background-color: powderblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+  padding: 2rem;
+}
+h1 {
+  margin: 0;
+  padding: 1rem;
+}
+button {
+  background-color: dodgerblue;
+  font-size: 1rem;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 1px 1px 3px black;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: snow;
+}
+button:active {
+  box-shadow: none;
+}
+main {
+  padding: 1.5rem;
+}
+p {
+  font-size: 1.75rem;
+}
+
+footer {
+  color: gray;
+}
