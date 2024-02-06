@@ -8,14 +8,11 @@ function getQuote() {
 
   quote
     .then((response) => {
-      console.log(response.status); // 200
-      console.log(response.ok); // true
       return response.json(); // returns a promise with the actual resource
     })
     .then((data) => {
-      console.log(data);
-      singleQuote.innerText = data.quote;
-      author.innerText = "- " + data.author;
+      singleQuote.textContent = data.quote;
+      author.textContent = "- " + data.author;
 
       quoteSection.append(singleQuote, author);
     });
