@@ -1,3 +1,4 @@
+/*
 const quoteSection = document.getElementById("quotes-section");
 const singleQuote = document.getElementById("quote");
 const author = document.getElementById("footer");
@@ -16,6 +17,39 @@ function getQuote() {
 
       quoteSection.append(singleQuote, author);
     });
+}
+// event listener
+const btnQuote = document.querySelector("button");
+btnQuote.addEventListener("click", getQuote);
+*/
+//
+//--- mit state ---
+//
+const quoteSection = document.getElementById("quotes-section");
+const singleQuote = document.getElementById("quote");
+const author = document.getElementById("footer");
+// state
+const state = { author: "", quote: "" };
+
+function getQuote() {
+  const quotes = fetch("https://dummy-apis.netlify.app/api/quote");
+
+  quotes
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      state.author = data.quote;
+      state.quote = data.quote;
+    });
+  render();
+}
+
+function render() {
+  singleQuote.textContent = state.quote;
+  author.textContent = "- " + state.author;
+
+  quoteSection.append(singleQuote, author);
 }
 // event listener
 const btnQuote = document.querySelector("button");
