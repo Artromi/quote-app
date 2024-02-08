@@ -4,10 +4,8 @@ const singleQuote = document.getElementById("quote");
 const author = document.getElementById("footer");
 //
 function getQuote() {
-  quoteSection.innerHTML = "";
-  const quote = fetch("https://dummy-apis.netlify.app/api/quote");
-
-  quote
+  //quoteSection.innerHTML = "";
+  fetch("https://dummy-apis.netlify.app/api/quote")
     .then((response) => {
       return response.json(); // returns a promise with the actual resource
     })
@@ -24,7 +22,7 @@ btnQuote.addEventListener("click", getQuote);
 */
 //
 //--- mit state ---
-//
+
 const quoteSection = document.getElementById("quotes-section");
 const singleQuote = document.getElementById("quote");
 const author = document.getElementById("footer");
@@ -40,11 +38,12 @@ function getQuote() {
     .then((data) => {
       state.author = data.author;
       state.quote = data.quote;
+      render();
     });
-  render();
 }
 
 function render() {
+  quoteSection.innerHTML = "";
   singleQuote.textContent = state.quote;
   author.textContent = "- " + state.author;
 
